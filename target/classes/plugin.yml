@@ -1,0 +1,8 @@
+name: JhaliersToolpack
+version: '1'
+
+main: org.jhalier.jhaliersToolpack.JhaliersToolpack
+api-version: '1.21'
+load: POSTWORLD
+author: Jhailier
+description: Jhailier's Dev Tools

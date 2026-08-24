@@ -13,6 +13,9 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Set;
 
+import org.jhalier.jhaliersToolpack.dev.DevCommandExecutor;
+import org.jhalier.jhaliersToolpack.dev.DevCommandListener;
+
 public class JhaliersToolpack extends JavaPlugin {
 
     /*
@@ -72,18 +75,64 @@ public class JhaliersToolpack extends JavaPlugin {
     @Override
     public void onEnable() {
 
+        /*
+         * ==========================================
+         * BESTEHENDES TOOLPACK
+         * ==========================================
+         */
+
         getServer().getPluginManager().registerEvents(
                 new ConsoleCommandListener(this),
                 this
         );
 
         /*
-         * Shell immer im Server-Hauptverzeichnis starten.
+         * ==========================================
+         * DEV
+         * ==========================================
          */
-        shellDirectory = Bukkit.getWorldContainer()
-                .toPath()
-                .toAbsolutePath()
-                .normalize();
+
+        DevCommandListener devListener =
+                new DevCommandListener();
+
+        getServer().getPluginManager().registerEvents(
+                devListener,
+                this
+        );
+
+        DevCommandExecutor devCommands =
+                new DevCommandExecutor(this);
+
+        if (getCommand("dev") != null) {
+
+            getCommand("dev")
+                    .setExecutor(devCommands);
+        }
+
+        /*
+         * ==========================================
+         * TICK MONITOR
+         * ==========================================
+         */
+
+        Bukkit.getScheduler().runTaskTimer(
+                this,
+                devCommands::recordTick,
+                1L,
+                1L
+        );
+
+        /*
+         * ==========================================
+         * SHELL STARTVERZEICHNIS
+         * ==========================================
+         */
+
+        shellDirectory =
+                Bukkit.getWorldContainer()
+                        .toPath()
+                        .toAbsolutePath()
+                        .normalize();
 
         getLogger().info(
                 "JhaliersToolpack wurde aktiviert!"
@@ -97,6 +146,8 @@ public class JhaliersToolpack extends JavaPlugin {
 
         commandLoggingEnabled = false;
         shellEnabled = false;
+
+        DevCommandListener.clear();
 
         getLogger().info(
                 "JhaliersToolpack wurde deaktiviert!"

@@ -1,8 +1,12 @@
 name: JhaliersToolpack
-version: '${version}'
-
+version: 1.0
 main: org.jhalier.jhaliersToolpack.JhaliersToolpack
 api-version: '1.21'
-load: POSTWORLD
-author: Jhailier
-description: Jhailier's Dev Tools
+author: Jhalier | https://github.com/pwl-de
+
+commands:
+  dev:
+    description: JhaliersToolpack Developer Commands
+    usage: /dev <subcommand>
+    aliases:
+      - devhelp

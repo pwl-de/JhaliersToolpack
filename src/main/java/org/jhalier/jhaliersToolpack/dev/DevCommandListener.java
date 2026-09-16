@@ -16,9 +16,9 @@ public class DevCommandListener implements Listener {
             new HashSet<>();
 
     /*
-     * ==========================================
+
      * FREEZE
-     * ==========================================
+
      */
 
     public static void freeze(
@@ -38,9 +38,9 @@ public class DevCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * UNFREEZE
-     * ==========================================
+
      */
 
     public static void unfreeze(
@@ -55,9 +55,9 @@ public class DevCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * STATUS
-     * ==========================================
+
      */
 
     public static boolean isFrozen(
@@ -70,9 +70,9 @@ public class DevCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * MOVEMENT
-     * ==========================================
+
      */
 
     @EventHandler(
@@ -112,9 +112,9 @@ public class DevCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * CLEANUP
-     * ==========================================
+
      */
 
     public static void clear() {

@@ -23,9 +23,9 @@ public class DevCommandExecutor implements CommandExecutor {
     private final org.jhalier.jhaliersToolpack.JhaliersToolpack plugin;
 
     /*
-     * ==========================================
+
      * PERFORMANCE
-     * ==========================================
+
      */
 
     private long lastTickNanos = System.nanoTime();
@@ -46,9 +46,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * COMMAND
-     * ==========================================
+
      */
 
     @Override
@@ -164,9 +164,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * /dev help
-     * ==========================================
+
      */
 
     private void sendHelp(
@@ -247,9 +247,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * /dev ping
-     * ==========================================
+
      */
 
     private void handlePing(
@@ -331,9 +331,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * /dev pingall
-     * ==========================================
+
      */
 
     private void handlePingAll(
@@ -409,9 +409,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * /dev playerinfo
-     * ==========================================
+
      */
 
     private void handlePlayerInfo(
@@ -788,9 +788,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * /dev perf
-     * ==========================================
+
      */
 
     private void handlePerf(
@@ -963,9 +963,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * PERFORMANCE SNAPSHOT
-     * ==========================================
+
      */
 
     private PerformanceSnapshot createPerformanceSnapshot() {
@@ -1066,9 +1066,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * TICK MONITOR
-     * ==========================================
+
      */
 
     public void recordTick() {
@@ -1101,9 +1101,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * /dev freeze
-     * ==========================================
+
      */
 
     private void handleFreeze(
@@ -1164,9 +1164,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * /dev unfreeze
-     * ==========================================
+
      */
 
     private void handleUnfreeze(
@@ -1227,9 +1227,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * INFO HELPER
-     * ==========================================
+
      */
 
     private void sendInfo(
@@ -1251,9 +1251,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * CLIENT BRAND
-     * ==========================================
+
      */
 
     private String getClientBrand(
@@ -1276,9 +1276,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * PROTOCOL
-     * ==========================================
+
      */
 
     private String getProtocolVersion(
@@ -1305,9 +1305,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * PERMISSIONS
-     * ==========================================
+
      */
 
     private String getPermissionSummary(
@@ -1336,9 +1336,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * POTION EFFECTS
-     * ==========================================
+
      */
 
     private String getPotionEffects(
@@ -1388,9 +1388,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * FORMAT
-     * ==========================================
+
      */
 
     private String formatTps(
@@ -1450,9 +1450,9 @@ public class DevCommandExecutor implements CommandExecutor {
     }
 
     /*
-     * ==========================================
+
      * SNAPSHOT
-     * ==========================================
+
      */
 
     private record PerformanceSnapshot(

